@@ -381,11 +381,10 @@ void loop(void) {
       if (!manual) {write_to_pc();}               // elapsed, send data to the PC
       millis_PC_wait = millis();                  // and reset the elapsed time
   }
-  //write_to_pc();  // This is for debug only. Making this active will continue to 
-                    // update the PC display and the clock continues to run
-                    // even though the measurement has terminated.
-  // finally, update the lcd with the fresh values
+  // Update the PC software while the test is running
+  if (!end_of_test){write_to_pc();}
 
+  // finally, update the lcd with the fresh values
   write_to_lcd();
     
 } // end of loop
